@@ -1,0 +1,35 @@
+sudo: false
+language: node_js
+node_js:
+- 5.6.0
+env:
+  global:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+cache:
+  directories:
+  - node_modules
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+before_install:
+- npm config set progress=false
+- npm install -g npm@^3
+- npm i -g gulp
+install:
+- npm i
+script:
+- gulp
+deploy:
+  provider: npm
+  email: dtothefp@gmail.com
+  on:
+    tags: true
+  api_key:
+    secure: gvXmuXpWAf/wiGYMgj9Bi0y8esp1WUxVo9IYtXUmFAM0nvdIA+i48JhtH8EQ2gEGAnVIytDD9UVReG2IYJ7GQgv9BE+hzgleBlqbYw8VyQmscVFtnVuafjnJf6Zr/XPTB/febOd8zlgJpblkkjUjn2lGjgsM548YmQ/cSFoy680LDvdG69j5jlLIAqD+HdVqDnVTB1Ydj8PCwYYZlLLuPSAiFs6d1ZjV8eG2GxnxxntHq0gIR3hk14RWXmYq5ZUxEePLeKyIYNlHYkCi5Q4zPHDAlTGRhKLPXZU9Y+IdhbuzaYf9nFoZSEPdFPSK11w8HooDHcqzVCxWsqNH8VcqrpPUbMhXAtVwcn5U+TjTsxECgl289XArFqIveGr7bbOrNjxZIPXt97Kk0VuxvJJGn88PIPJkx9MGbnaKpXSDjwyKwTrW9JgyYtlZjPaJH4HKla/h9jC35Qj6vID3jJUoTgiQOlKPVwdkvZ74wa85idbOUtU8eolygZHpZnJmm/hkS16WtFv++1NzqP3KyQQIU4+cechW+ZnUU5ev1D3DgXd77CMDQyNz+Z3XS2eKNE9/eQTme34b6Rqrd4C51ue3cDX+Af/AO2p5IeCbiEPRgeLBRSeoVxNNVAW6V4SP/QPTkWiqHds6JULgpwkjl3Jy5SAaMRrsDrwgMrlfHweOa9w=
