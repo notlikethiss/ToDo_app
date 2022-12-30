@@ -1,17 +1,10 @@
 const taskInput = document.querySelector('#addTask')
 const taskList = document.querySelector('#taskList')
 const cleanButton = document.querySelector('#cleanToDo')
-const body = document.querySelector('body')
 
 const tasks = []
-let finalTasks = tasks.split(', ')
-
-body.addEventListener('DOMContentLoaded', () => {
-	localStorage.getItem('tasks', finalTasks)
-	tasks.className = 'task'
-	tasks.innerText = `${taskInput.value}`
-	taskList.append(tasks)
-})
+const savedTasks = localStorage.tasks
+const finalTask = savedTasks.split(',')
 
 const newTask = () => {
 	const task = document.createElement('li')
@@ -20,18 +13,41 @@ const newTask = () => {
 	task.innerText = `${taskInput.value}`
 	taskList.appendChild(task)
 
-	localStorage.setItem('tasks', finalTasks)
+	localStorage.setItem('tasks', tasks)
 
 	tasks.push(taskInput.value)
 }
 
+const clearTasks = () => {
+	taskList.innerHTML = ''
+	taskInput.value = ''
+}
+
+const reloadPageUpdate = () => {
+
+	finalTask.forEach((x) => {
+		const task = document.createElement('li')
+		
+		task.innerText = x
+		task.className = 'task'
+		taskList.appendChild(task)
+		
+	})
+}
+
+
+
 taskInput.addEventListener('keypress', (e) => {
 	if(e.key === 'Enter'){
 		newTask()
+		taskInput.value = ''
 	}
 })
 
 cleanButton.addEventListener('click', () => {
-	taskList.innerHTML = ''
-	taskInput.value = ''
+	clearTasks()
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+	reloadPageUpdate()
 })
