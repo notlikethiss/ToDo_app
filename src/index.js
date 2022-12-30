@@ -1,8 +1,12 @@
+
 const taskInput = document.querySelector('#addTask')
 const taskList = document.querySelector('#taskList')
 const cleanButton = document.querySelector('#cleanToDo')
 
 const tasks = []
+
+localStorage.tasks ? undefined : localStorage.setItem('tasks', tasks)
+
 const savedTasks = localStorage.tasks
 const finalTask = savedTasks.split(',')
 
@@ -27,7 +31,6 @@ const clearTasks = () => {
 
 const reloadPageUpdate = () => {
 	finalTask.forEach((x) => {
-
 		const task = document.createElement('li')
 		
 		task.innerText = x
@@ -48,7 +51,7 @@ cleanButton.addEventListener('click', () => {
 	clearTasks()
 })
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 	if(finalTask != false){
 		reloadPageUpdate()
 	}
