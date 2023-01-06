@@ -10,6 +10,28 @@ localStorage.tasks ? undefined : localStorage.setItem('tasks', tasks)
 const savedTasks = localStorage.tasks
 const finalTask = savedTasks.split(',')
 
+class storageData {
+	constructor(data) {
+		this.data = data
+	}
+
+	setData() {
+		try {
+			localStorage.setItem(`${this.data}`, `${this.data.value}`)
+		} catch {
+			console.error('setData error')
+		}
+	}
+
+	getData() {
+		try {
+			localStorage.getItem(`${this.data}`)
+		} catch {
+			console.error('getData error')
+		}
+	}
+}
+
 const newTask = () => {
 	const task = document.createElement('li')
 	
