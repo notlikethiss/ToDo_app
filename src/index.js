@@ -1,4 +1,3 @@
-
 const taskInput = document.querySelector('#addTask')
 const taskList = document.querySelector('#taskList')
 const cleanButton = document.querySelector('#cleanToDo')

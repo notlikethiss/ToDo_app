@@ -12,24 +12,6 @@ body {
 	background-size: 200%;
 }
 
-@media screen and (max-width: 800px) {
-	.wrapper {
-		width: 235px;
-	}
-
-	#addTask {
-		width: 100%;
-	}
-
-	.container {
-		width: 100%;
-	}
-
-	#root {
-		width: 300px;
-	}
-}
-
 #root {
 	display: flex;
     justify-content: flex-start;
@@ -38,6 +20,7 @@ body {
 	padding: 40px;
 	background-size: cover;
 	height: 100%;
+	width: 100%;
 }
 
 #taskList {
@@ -56,6 +39,7 @@ body {
 	height: 40px;
 	background: rgba(255, 255, 255, 0.2);
 	padding-left: 5px;
+	width: 100%;
 	outline: none;
 }
 
@@ -68,6 +52,7 @@ body {
 }
 
 .container {
+	width: 100%;
 	margin-top: 40px;
 	display: flex;
 	align-items: center;
@@ -98,6 +83,7 @@ body {
 }
 
 .wrapper {
+	width: 235px;
 	color: rgba(255, 255, 255, 0.9);
 	display: flex;
 	flex-direction: column;
