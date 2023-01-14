@@ -18,7 +18,7 @@ class storageData {
 		try {
 			localStorage.setItem(`${this.data}`, `${this.data.value}`)
 		} catch {
-			console.error('setData error')
+			throw error
 		}
 	}
 
@@ -26,7 +26,7 @@ class storageData {
 		try {
 			localStorage.getItem(`${this.data}`)
 		} catch {
-			console.error('getData error')
+			throw error
 		}
 	}
 }
