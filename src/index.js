@@ -18,7 +18,7 @@ class storageData {
 		try {
 			localStorage.setItem(`${this.data}`, `${this.data.value}`)
 		} catch {
-			throw error
+			console.log('null')
 		}
 	}
 
