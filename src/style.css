@@ -84,7 +84,7 @@ body {
 }
 
 .wrapper {
-	width: 270px;
+	width: 280px;
 	color: rgba(255, 255, 255, 0.9);
 	display: flex;
 	flex-direction: column;
