@@ -17,16 +17,16 @@ class storageData {
 	setData() {
 		try {
 			localStorage.setItem(`${this.data}`, `${this.data.value}`)
-		} catch {
-			console.log('null')
+		} catch(error) {
+			console.error(error)
 		}
 	}
 
 	getData() {
 		try {
 			localStorage.getItem(`${this.data}`)
-		} catch {
-			throw error
+		} catch(error) {
+			console.error(error)
 		}
 	}
 }
